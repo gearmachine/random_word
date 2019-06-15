@@ -1,17 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    {{random(verbs)}} <br>
+    {{random(adjs)}}
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import verb from 'raw-loader!./assets/verb.txt';
+import adj from 'raw-loader!./assets/adjective.txt';
 
 export default {
   name: 'app',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      verbs: null,
+      adjs: null
+    }
+  },
+  methods : {
+    random(array){
+      let length = Math.min(500, array.length);
+      let index = Math.round( Math.random()* length );
+      return array[index];
+    }
+  },
+  created() {
+    this.verbs = verb.split("\r\n");
+    this.adjs = adj.split("\r\n");
   }
 }
 </script>
