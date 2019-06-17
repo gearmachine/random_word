@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    {{random(verbs)}} <br>
-    {{random(adjs)}}
+    {{random(verbs, 200)}} <br>
+    {{random(adjs, 100)}}
   </div>
 </template>
 
@@ -18,8 +18,8 @@ export default {
     }
   },
   methods : {
-    random(array){
-      let length = Math.min(100, array.length);
+    random(array, num){
+      let length = Math.min(num, array.length);
       let index = Math.round( Math.random()* length );
       return array[index];
     }
