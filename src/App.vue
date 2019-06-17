@@ -19,7 +19,7 @@ export default {
   },
   methods : {
     random(array){
-      let length = Math.min(500, array.length);
+      let length = Math.min(100, array.length);
       let index = Math.round( Math.random()* length );
       return array[index];
     }
